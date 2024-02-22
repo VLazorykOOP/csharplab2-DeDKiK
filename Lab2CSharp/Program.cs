@@ -82,3 +82,46 @@ class Program
           }
           Console.WriteLine();
       }
+        //Завдання 4
+        Console.WriteLine("\nЗавдання 4:");
+        Console.Write("Введіть кількість рядків масиву: ");
+        int n1 = Convert.ToInt32(Console.ReadLine());
+
+        int[][] jaggedArray = new int[n][];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write($"Введіть кількість елементів в рядку {i + 1}: ");
+            int m = Convert.ToInt32(Console.ReadLine());
+
+            jaggedArray[i] = new int[m];
+
+            for (int j = 0; j < m; j++)
+            {
+                Console.Write($"Введіть елемент {j + 1} в рядку {i + 1}: ");
+                jaggedArray[i][j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+
+        List<int> result = new List<int>();
+
+        for (int i = 0; i < jaggedArray.Length; i++)
+        {
+            for (int j = 0; j < jaggedArray[i].Length; j++)
+            {
+                if (jaggedArray[i][j] < 0)
+                {
+                    result.Add(j + 1); // Додаємо 1, оскільки індексація починається з 0
+                    break;
+                }
+            }
+        }
+
+        // Виводимо результат
+        Console.WriteLine("Номери перших від’ємних елементів в кожному рядку:");
+        foreach (int index1 in result)
+        {
+            Console.WriteLine(index);
+        }
+    }
+}
