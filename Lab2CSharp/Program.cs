@@ -47,3 +47,38 @@ class Program
  double max = array.Max();
  int index = Array.IndexOf(array, max) + 1;
  Console.WriteLine($"Номер першого максимального елемента: {index}");
+
+              // Завдання 3
+      Console.WriteLine("\nЗавдання 3:");
+      Console.Write("Введіть розмірність масиву: ");
+      n = Convert.ToInt32(Console.ReadLine());
+      array2D = new int[n, n];
+      for (int i = 0; i < n; i++)
+      {
+          for (int j = 0; j < n; j++)
+          {
+              Console.Write($"Введіть елемент [{i + 1}, {j + 1}]: ");
+              array2D[i, j] = Convert.ToInt32(Console.ReadLine());
+          }
+      }
+      if (n % 2 == 0)
+      {
+          for (int i = 0; i < n; i += 2)
+          {
+              for (int j = 0; j < n; j++)
+              {
+                  int temp = array2D[j, i];
+                  array2D[j, i] = array2D[j, i + 1];
+                  array2D[j, i + 1] = temp;
+              }
+          }
+      }
+      Console.WriteLine("Масив після обміну стовпців:");
+      for (int i = 0; i < n; i++)
+      {
+          for (int j = 0; j < n; j++)
+          {
+              Console.Write($"{array2D[i, j]} ");
+          }
+          Console.WriteLine();
+      }
