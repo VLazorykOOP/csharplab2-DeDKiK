@@ -1,10 +1,35 @@
-﻿namespace Lab2CSharp
+using System;
+using System.Linq;
+
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        // Завдання 1 з одновимірним масивом
+        Console.WriteLine("Завдання 1 з одновимірним масивом:");
+        Console.Write("Введіть розмірність масиву: ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        int[] array1D = new int[n];
+        for (int i = 0; i < n; i++)
         {
-            Console.WriteLine("Lab 2 CSharp");
+            Console.Write($"Введіть елемент {i + 1}: ");
+            array1D[i] = Convert.ToInt32(Console.ReadLine());
         }
-    }
-}
+        int sum = array1D.Where(x => x % 9 == 0).Sum();
+        Console.WriteLine($"Сума елементів, кратних 9: {sum}");
+
+        // Завдання 1 з двовимірним масивом
+        Console.WriteLine("\nЗавдання 1 з двовимірним масивом:");
+        Console.Write("Введіть розмірність масиву: ");
+        n = Convert.ToInt32(Console.ReadLine());
+        int[,] array2D = new int[n, n];
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write($"Введіть елемент [{i + 1}, {j + 1}]: ");
+                array2D[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        sum = array2D.Cast<int>().Where(x => x % 9 == 0).Sum();
+        Console.WriteLine($"Сума елементів, кратних 9: {sum}");
