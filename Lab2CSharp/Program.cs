@@ -33,3 +33,17 @@ class Program
         }
         sum = array2D.Cast<int>().Where(x => x % 9 == 0).Sum();
         Console.WriteLine($"Сума елементів, кратних 9: {sum}");
+
+         // Завдання 2 
+ Console.WriteLine("\nЗавдання 2:");
+ Console.Write("Введіть розмірність масиву: ");
+ n = Convert.ToInt32(Console.ReadLine());
+ double[] array = new double[n];
+ for (int i = 0; i < n; i++)
+ {
+     Console.Write($"Введіть елемент {i + 1}: ");
+     array[i] = Convert.ToDouble(Console.ReadLine());
+ }
+ double max = array.Max();
+ int index = Array.IndexOf(array, max) + 1;
+ Console.WriteLine($"Номер першого максимального елемента: {index}");
